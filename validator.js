@@ -5,7 +5,8 @@ const terra = new Terra.LCDClient({
 
 const pegasusAddress = "terravaloper1wdpwudvc639tpy952n2myre6uckuqdu3h9suke"
 
-terra.staking.delegators(pegasusAddress).then(function(delegators) {
-    console.log(delegators)
+terra.staking.validator(pegasusAddress).then(function(validator) {
+    const shares = Math.round(validator.delegator_shares.toNumber() / 1000000)
+    stake.innerHTML = shares+" LUNA"
 })
 
